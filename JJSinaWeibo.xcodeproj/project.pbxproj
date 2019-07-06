@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7E839A4422D0BEC50027FE1F /* JJDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */; };
 		7E839A4622D0D3040027FE1F /* UIbarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4522D0D3040027FE1F /* UIbarButtonItem+Extension.swift */; };
+		7E839A4822D1028E0027FE1F /* SecondNavgationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4722D1028E0027FE1F /* SecondNavgationBar.swift */; };
 		7EA5B71522D04AE200DDDFD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5B71422D04AE200DDDFD0 /* AppDelegate.swift */; };
 		7EA5B71C22D04AE200DDDFD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EA5B71B22D04AE200DDDFD0 /* Assets.xcassets */; };
 		7EA5B71F22D04AE200DDDFD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EA5B71D22D04AE200DDDFD0 /* LaunchScreen.storyboard */; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJDemoViewController.swift; sourceTree = "<group>"; };
 		7E839A4522D0D3040027FE1F /* UIbarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIbarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		7E839A4722D1028E0027FE1F /* SecondNavgationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondNavgationBar.swift; sourceTree = "<group>"; };
 		7EA5B71122D04AE200DDDFD0 /* JJSinaWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JJSinaWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EA5B71422D04AE200DDDFD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EA5B71B22D04AE200DDDFD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				7EA5B73B22D07BE400DDDFD0 /* JJMainViewController.swift */,
 				7EA5B73D22D07C2D00DDDFD0 /* JJNavigationController.swift */,
 				7EA5B73F22D07C4800DDDFD0 /* JJBaseViewController.swift */,
+				7E839A4722D1028E0027FE1F /* SecondNavgationBar.swift */,
 				7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */,
 			);
 			path = Main;
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E839A4822D1028E0027FE1F /* SecondNavgationBar.swift in Sources */,
 				7E839A4622D0D3040027FE1F /* UIbarButtonItem+Extension.swift in Sources */,
 				7EA5B71522D04AE200DDDFD0 /* AppDelegate.swift in Sources */,
 				7EA5B76722D09C3400DDDFD0 /* NSString+CZBase64.m in Sources */,

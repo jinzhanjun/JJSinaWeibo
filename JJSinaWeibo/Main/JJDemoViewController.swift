@@ -20,10 +20,10 @@ class JJDemoViewController: JJBaseViewController {
         super.setupUI()
         
         // 设置导航条标题
-        navigationItem.title = "第" + String(navigationController?.children.count ?? 0) + "个"
+        navItem.title = "第" + String(navigationController?.children.count ?? 0) + "个"
         
         // 设置导航条右侧按钮
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(showNext))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(showNext))
     }
 
 }

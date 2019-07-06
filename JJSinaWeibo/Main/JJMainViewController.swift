@@ -81,7 +81,7 @@ extension JJMainViewController {
         let vc = vcCls.init()
         // 设置显示字体
         vc.tabBarItem.title = title
-        vc.navigationItem.title = title
+        vc.navItem.title = title
         vc.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
         // 设置高亮图片，并渲染
         vc.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal)

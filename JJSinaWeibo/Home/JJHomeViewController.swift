@@ -23,7 +23,7 @@ class JJHomeViewController: JJBaseViewController {
 //        let btn: UIButton = UIButton.cz_textButton("好友", fontSize: 16, normalColor: UIColor.gray, highlightedColor: UIColor.orange)
 //        btn.addTarget(self, action: #selector(pushFriends), for: .touchUpInside)
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(pushFriends))
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(pushFriends))
     }
     
 }
@@ -36,7 +36,7 @@ extension JJHomeViewController {
         
         let vc = JJDemoViewController()
         // 当push时隐藏底部tabbar
-        vc.hidesBottomBarWhenPushed = true
+//        vc.hidesBottomBarWhenPushed = true
         
         navigationController?.pushViewController(vc, animated: true)
     }
