@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  JJProfileViewController.swift
 //  JJSinaWeibo
 //
 //  Created by 金占军 on 2019/7/6.
@@ -8,13 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class JJProfileViewController: JJBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
-
 }
-
