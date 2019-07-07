@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E0B116D22D19DC40050CD9A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */; };
 		7E839A4422D0BEC50027FE1F /* JJDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */; };
 		7E839A4622D0D3040027FE1F /* UIbarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4522D0D3040027FE1F /* UIbarButtonItem+Extension.swift */; };
 		7E839A4822D1028E0027FE1F /* SecondNavgationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4722D1028E0027FE1F /* SecondNavgationBar.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJDemoViewController.swift; sourceTree = "<group>"; };
 		7E839A4522D0D3040027FE1F /* UIbarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIbarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		7E839A4722D1028E0027FE1F /* SecondNavgationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondNavgationBar.swift; sourceTree = "<group>"; };
@@ -89,6 +91,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0B116A22D19D890050CD9A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				7E0B116B22D19D9D0050CD9A /* Extensions */,
+				7EA5B74922D09C3400DDDFD0 /* Additions */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		7E0B116B22D19D9D0050CD9A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7E839A4522D0D3040027FE1F /* UIbarButtonItem+Extension.swift */,
+				7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7EA5B70822D04AE200DDDFD0 = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +138,7 @@
 				7EA5B71D22D04AE200DDDFD0 /* LaunchScreen.storyboard */,
 				7EA5B77122D09DC500DDDFD0 /* Bridge.h */,
 				7EA5B72022D04AE200DDDFD0 /* Info.plist */,
-				7E839A4522D0D3040027FE1F /* UIbarButtonItem+Extension.swift */,
-				7EA5B74922D09C3400DDDFD0 /* Additions */,
+				7E0B116A22D19D890050CD9A /* Tools */,
 			);
 			path = JJSinaWeibo;
 			sourceTree = "<group>";
@@ -237,7 +256,7 @@
 				};
 			};
 			buildConfigurationList = 7EA5B70C22D04AE200DDDFD0 /* Build configuration list for PBXProject "JJSinaWeibo" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -294,6 +313,7 @@
 				7EA5B76822D09C3400DDDFD0 /* NSString+CZPath.m in Sources */,
 				7EA5B76322D09C3400DDDFD0 /* UIColor+CZAddition.m in Sources */,
 				7EA5B76422D09C3400DDDFD0 /* UIView+CZAddition.m in Sources */,
+				7E0B116D22D19DC40050CD9A /* Bundle+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8AQ47Z9975;
 				INFOPLIST_FILE = JJSinaWeibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -456,7 +476,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8AQ47Z9975;
 				INFOPLIST_FILE = JJSinaWeibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

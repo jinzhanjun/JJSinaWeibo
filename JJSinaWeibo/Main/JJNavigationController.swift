@@ -15,7 +15,6 @@ class JJNavigationController: UINavigationController {
         
         navigationBar.isHidden = true
 //        print(navigationBar)
-        
     }
 
     // 重写push方法，使得跟控制器不隐藏tabbar， push第二个控制器的时候会隐藏tabbar
@@ -33,7 +32,7 @@ class JJNavigationController: UINavigationController {
                     
                     title = "返回"
                 }
-                vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(goBack))
+                vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(goBack), isBack: true)
             }
 //
 //            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(goBack))
@@ -41,9 +40,8 @@ class JJNavigationController: UINavigationController {
         
         super.pushViewController(viewController, animated: animated)
     }
-    
+    // 返回上一级控制器
     @objc private func goBack() {
-        
         popViewController(animated: true)
     }
 }

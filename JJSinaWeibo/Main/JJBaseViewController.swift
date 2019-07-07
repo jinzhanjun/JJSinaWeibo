@@ -30,11 +30,10 @@ class JJBaseViewController: UIViewController {
 
     // 设置UI
     func setupUI() {
-        
         view.backgroundColor = UIColor.cz_random()
-        
         // 给自定义导航条添加导航条目
         navBar.items = [navItem]
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         // 添加自定义导航条
         view.addSubview(navBar)
     }

@@ -66,13 +66,11 @@ extension JJMainViewController {
     private func setChildController(dict:[String: Any]) -> UIViewController {
 
         // 获取命名空间
-        guard let boundleNmae = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String,
-            let clsName = dict["clsName"] as? String,
-            let imageName = dict["imageName"] as? String,
-            let vcCls = NSClassFromString(boundleNmae + "." + clsName) as? JJBaseViewController.Type,
-            let title = dict["title"] as? String
-
-            else {
+        guard let clsName = dict["clsName"] as? String,
+              let imageName = dict["imageName"] as? String,
+              let vcCls = NSClassFromString(Bundle.main.nameSpace + clsName) as? JJBaseViewController.Type,
+              let title = dict["title"] as? String
+        else {
                 return UIViewController()
         }
 
