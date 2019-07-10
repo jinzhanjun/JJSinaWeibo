@@ -19,25 +19,32 @@ class JJHomeViewController: JJBaseViewController {
         super.viewDidLoad()
         
         // 注册可重用cell
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
-        
+        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         // 加载数据
         loadData()
     }
-    
+
     // 模拟延迟加载数据
-    private func loadData() {
+    override func loadData() {
         // 异步加载数据
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             
-            // 睡两秒
-            Thread.sleep(forTimeInterval: 5)
-            
+            // 判断是否为下拉刷新
             for i in 0..<20 {
-                self.dataList.append(String(i))
+                // 上拉刷新
+                if self.ispullUp {
+                    self.dataList.append("上拉\(i)")
+                } else {
+                    self.dataList.insert(i.description, at: 0)
+                }
             }
+            // 结束刷新控件
+            self.refreshController?.endRefreshing()
             // 重新加载数据
-            self.tableView.reloadData()
+            self.tableView?.reloadData()
+            
+            // 恢复上拉刷新标记
+            self.ispullUp = false
         }
     }
     
@@ -62,6 +69,10 @@ class JJHomeViewController: JJBaseViewController {
         // 返回cell
         return cell
     }
+    
+//    // 如果将要显示最后一行
+//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//    }
 }
 
 // 定义监听方法
