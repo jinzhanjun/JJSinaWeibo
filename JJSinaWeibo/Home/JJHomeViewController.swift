@@ -8,22 +8,63 @@
 
 import UIKit
 
+let cellID = "cellID"
+
 class JJHomeViewController: JJBaseViewController {
 
+    /// 定义数据
+    lazy var dataList = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        // 设置界面
-//        setupUI()
+        
+        // 注册可重用cell
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+        
+        // 加载数据
+        loadData()
     }
+    
+    // 模拟延迟加载数据
+    private func loadData() {
+        // 异步加载数据
+        DispatchQueue.main.async {
+            
+            // 睡两秒
+            Thread.sleep(forTimeInterval: 5)
+            
+            for i in 0..<20 {
+                self.dataList.append(String(i))
+            }
+            // 重新加载数据
+            self.tableView.reloadData()
+        }
+    }
+    
     override func setupNavigationBar() {
         super.setupNavigationBar()
         
         // 设置导航栏左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(pushFriends))
     }
+    
+    // 注册可重用cell
+    // 实现数据源方法
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // 获取可重用cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        // 设置cell
+        cell.textLabel?.text = dataList[indexPath.row]
+        // 返回cell
+        return cell
+    }
 }
 
+// 定义监听方法
 extension JJHomeViewController {
     
     // 添加@objc作用： 得益于 Swift 的静态语言特性，每个函数的调用在编译期间就可以确定。因此在编译完成后可以检测出没有被调用到的 swift 函数，优化删除后可以减小最后二进制文件的大小。这个功能在 XCode 9 和 Swift 4 中终于被引进。
