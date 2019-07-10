@@ -34,8 +34,6 @@ class JJNavigationController: UINavigationController {
                 }
                 vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(goBack), isBack: true)
             }
-//
-//            navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(goBack))
         }
         
         super.pushViewController(viewController, animated: animated)

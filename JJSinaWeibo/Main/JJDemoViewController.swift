@@ -15,17 +15,15 @@ class JJDemoViewController: JJBaseViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func setupUI() {
-        super.setupUI()
-        
+    
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
         // 设置导航条标题
         navItem.title = "第" + String(navigationController?.children.count ?? 0) + "个"
         
         // 设置导航条右侧按钮
         navItem.rightBarButtonItem = UIBarButtonItem(title: "下一页", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(showNext))
     }
-
 }
 
 extension JJDemoViewController {

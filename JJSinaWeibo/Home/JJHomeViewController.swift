@@ -16,16 +16,12 @@ class JJHomeViewController: JJBaseViewController {
 //        // 设置界面
 //        setupUI()
     }
-    
-    override func setupUI() {
-        super.setupUI()
+    override func setupNavigationBar() {
+        super.setupNavigationBar()
         
-//        let btn: UIButton = UIButton.cz_textButton("好友", fontSize: 16, normalColor: UIColor.gray, highlightedColor: UIColor.orange)
-//        btn.addTarget(self, action: #selector(pushFriends), for: .touchUpInside)
-        
+        // 设置导航栏左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(pushFriends))
     }
-    
 }
 
 extension JJHomeViewController {

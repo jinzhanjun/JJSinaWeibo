@@ -18,7 +18,7 @@ class JJBaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
+        setupNavigationBar()
     }
     
     // 重写 titile 方法，给自定义导航条设置标题
@@ -27,12 +27,21 @@ class JJBaseViewController: UIViewController {
             title = navItem.title
         }
     }
+    
+    // 设置界面
+    private func setupTableView() {
+        
+    }
 
-    // 设置UI
-    func setupUI() {
-        view.backgroundColor = UIColor.cz_random()
+    // 设置导航栏
+    func setupNavigationBar() {
         // 给自定义导航条添加导航条目
         navBar.items = [navItem]
+        // 设置导航条透明时的背景颜色
+        navBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
+        // 设置导航条的Items透明时的背景颜色
+        navBar.tintColor = UIColor.orange
+        // 设置导航条标题的字体
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         // 添加自定义导航条
         view.addSubview(navBar)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -256,7 +256,7 @@
 				};
 			};
 			buildConfigurationList = 7EA5B70C22D04AE200DDDFD0 /* Build configuration list for PBXProject "JJSinaWeibo" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -455,12 +455,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8AQ47Z9975;
 				INFOPLIST_FILE = JJSinaWeibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Sina.JJSinaWeibo;
+				PRODUCT_BUNDLE_IDENTIFIER = Zhanjun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = JJSinaWeibo/Bridge.h;
 				SWIFT_VERSION = 5.0;
@@ -476,12 +476,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 8AQ47Z9975;
 				INFOPLIST_FILE = JJSinaWeibo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Sina.JJSinaWeibo;
+				PRODUCT_BUNDLE_IDENTIFIER = Zhanjun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = JJSinaWeibo/Bridge.h;
 				SWIFT_VERSION = 5.0;
