@@ -9,6 +9,11 @@
 import UIKit
 
 class JJBaseViewController: UIViewController {
+    /// 是否登录标记
+    var isLogon = false
+    /// 登录界面
+    var visitorView: JJVisitorView?
+    
     /// 懒加载 tableView
     var tableView: UITableView?
     var refreshController: UIRefreshControl?
@@ -24,7 +29,8 @@ class JJBaseViewController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBar()
-        setupTableView()
+        
+        isLogon ? setupTableView() : setupVisitorView()
     }
     
     // 重写 titile 方法，给自定义导航条设置标题
@@ -36,6 +42,17 @@ class JJBaseViewController: UIViewController {
     
     // MARK: -刷新监听方法
     @objc func loadData() {
+        
+        // 默认关闭刷新控件
+        refreshController?.endRefreshing()
+    }
+    
+    // 设置登录界面
+    private func setupVisitorView() {
+        
+        visitorView = JJVisitorView(frame: view.frame)
+        view.insertSubview(visitorView!, belowSubview: navBar)
+        
     }
     
     // 设置tableview

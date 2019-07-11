@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 创建视图控制器
         let vc = JJMainViewController()
-        vc.view.backgroundColor = UIColor.cz_random()
+        vc.view.backgroundColor = UIColor.white
         
         // 设置跟控制器
         window?.rootViewController = vc

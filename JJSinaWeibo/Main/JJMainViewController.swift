@@ -74,7 +74,6 @@ extension JJMainViewController {
                 return UIViewController()
         }
 
-        
         // 实例化控制器
         let vc = vcCls.init()
         // 设置显示字体

@@ -33,6 +33,7 @@
 		7EA5B76C22D09C3400DDDFD0 /* NSString+CZHash.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5B75D22D09C3400DDDFD0 /* NSString+CZHash.m */; };
 		7EA5B76D22D09C3400DDDFD0 /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5B76022D09C3400DDDFD0 /* NSAttributedString+CZAdditon.m */; };
 		7EA5B76E22D09C3400DDDFD0 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA5B76122D09C3400DDDFD0 /* NSArray+Log.m */; };
+		7EC884D822D645710035ACF5 /* JJVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC884D722D645710035ACF5 /* JJVisitorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		7EA5B76122D09C3400DDDFD0 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		7EA5B76222D09C3400DDDFD0 /* NSString+CZPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CZPath.h"; sourceTree = "<group>"; };
 		7EA5B77122D09DC500DDDFD0 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		7EC884D722D645710035ACF5 /* JJVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJVisitorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				7EA5B73F22D07C4800DDDFD0 /* JJBaseViewController.swift */,
 				7E839A4722D1028E0027FE1F /* SecondNavgationBar.swift */,
 				7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */,
+				7EC884D722D645710035ACF5 /* JJVisitorView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				7EA5B74022D07C4800DDDFD0 /* JJBaseViewController.swift in Sources */,
 				7EA5B74222D07C7400DDDFD0 /* JJHomeViewController.swift in Sources */,
 				7EA5B76622D09C3400DDDFD0 /* UILabel+CZAddition.m in Sources */,
+				7EC884D822D645710035ACF5 /* JJVisitorView.swift in Sources */,
 				7EA5B76822D09C3400DDDFD0 /* NSString+CZPath.m in Sources */,
 				7EA5B76322D09C3400DDDFD0 /* UIColor+CZAddition.m in Sources */,
 				7EA5B76422D09C3400DDDFD0 /* UIView+CZAddition.m in Sources */,
