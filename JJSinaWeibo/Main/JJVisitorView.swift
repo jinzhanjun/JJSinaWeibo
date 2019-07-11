@@ -9,15 +9,50 @@
 import UIKit
 
 class JJVisitorView: UIView {
+    /// 访客视图信息字典 [imagename / message]， 如果为首页就什么都不设置
+    var dict: [String: String]? {
+        didSet {
+            guard let imageName = dict?["imageName"],
+                let message = dict?["message"]
+                else {
+                return
+            }
+            
+            if imageName == "" {
+                // 首页需要旋转
+                startAnimation()
+                return
+            } else {
+                iconView.image = UIImage(named: imageName)
+                tipsView.text = message
+                
+                // 除了主页显示小房子和遮罩图像，其他页面不需要显示
+                houseIconView.isHidden = true
+                maskIconView.isHidden = true
+            }
+        }
+    }
 
     override init(frame: CGRect) {
+        
         super.init(frame: frame)
         backgroundColor = UIColor.cz_color(withRed: 237, green: 237, blue: 237)
         setupUI()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    // 设置动画
+    private func startAnimation() {
+        
+        let animation = CAKeyframeAnimation(keyPath: "transform.rotation")
+        animation.values = [Double.pi, -Double.pi]
+        animation.duration = 8
+        animation.repeatCount = MAXFLOAT
+        // 防止切换页面，动画停止
+        animation.isRemovedOnCompletion = false
+        iconView.layer.add(animation, forKey: nil)
     }
     
     // MARK: - 私有控件
@@ -29,8 +64,8 @@ class JJVisitorView: UIView {
     private lazy var houseIconView: UIImageView = UIImageView(image: UIImage(named: "visitordiscover_feed_image_house"))
     /// 懒加载提示文字
     private lazy var tipsView: UILabel = UILabel.cz_label(
-        withText: "关注一些人，在这里可以看到一些你喜欢的事情",
-        fontSize: 12,
+        withText: "登录后，可以看到你喜欢的一些事情  关注一些人，在这里可",
+        fontSize: 14,
         color: UIColor.darkGray)
     /// 懒加载注册按钮
     private lazy var registBtn: UIButton = UIButton.cz_textButton(
@@ -57,11 +92,13 @@ class JJVisitorView: UIView {
         addSubview(registBtn)
         addSubview(loginBtn)
         
+        // 文本居中
+        tipsView.textAlignment = .center
+        
         // 取消自动布局（autoresizing）
         for v in subviews {
             v.translatesAutoresizingMaskIntoConstraints = false
         }
-        
         // 自动布局
         // 设置 转轮
         addConstraint(NSLayoutConstraint(
@@ -80,6 +117,7 @@ class JJVisitorView: UIView {
             attribute: .centerY,
             multiplier: 1,
             constant: -40))
+        
         // 设置遮罩图像
         addConstraint(NSLayoutConstraint(
             item: maskIconView,
@@ -113,6 +151,7 @@ class JJVisitorView: UIView {
             attribute: .bottom,
             multiplier: 1,
             constant: 50))
+        
         // 设置小房子
         addConstraint(NSLayoutConstraint(
             item: houseIconView,
@@ -130,6 +169,7 @@ class JJVisitorView: UIView {
             attribute: .centerY,
             multiplier: 1,
             constant: 0))
+        
         // 设置提示文字
         addConstraint(NSLayoutConstraint(
             item: tipsView,
@@ -147,6 +187,15 @@ class JJVisitorView: UIView {
             attribute: .bottom,
             multiplier: 1,
             constant: 0))
+        addConstraint(NSLayoutConstraint(
+            item: tipsView,
+            attribute: .width,
+            relatedBy: .equal,
+            toItem: nil,
+            attribute: .notAnAttribute,
+            multiplier: 1,
+            constant: 250))
+        
         // 设置注册按钮
         addConstraint(NSLayoutConstraint(
             item: registBtn,
@@ -197,15 +246,5 @@ class JJVisitorView: UIView {
             attribute: .notAnAttribute,
             multiplier: 1,
             constant: 80))
-        
-        // 设置动画
-        let animation = CAKeyframeAnimation(keyPath: "transform.rotation")
-        animation.values = [Double.pi, -Double.pi]
-        animation.duration = 8
-        animation.repeatCount = MAXFLOAT
-        // 防止切换页面，动画停止
-        animation.isRemovedOnCompletion = false
-        iconView.layer.add(animation, forKey: nil)
-        
     }
 }

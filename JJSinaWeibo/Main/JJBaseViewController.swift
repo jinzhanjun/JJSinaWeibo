@@ -9,6 +9,8 @@
 import UIKit
 
 class JJBaseViewController: UIViewController {
+    /// 界面内容显示字典
+    var dictList: [String: String]?
     /// 是否登录标记
     var isLogon = false
     /// 登录界面
@@ -29,7 +31,6 @@ class JJBaseViewController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBar()
-        
         isLogon ? setupTableView() : setupVisitorView()
     }
     
@@ -51,6 +52,7 @@ class JJBaseViewController: UIViewController {
     private func setupVisitorView() {
         
         visitorView = JJVisitorView(frame: view.frame)
+        visitorView!.dict = dictList ?? [:]
         view.insertSubview(visitorView!, belowSubview: navBar)
         
     }

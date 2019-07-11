@@ -18,12 +18,11 @@ class JJMainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        let childList = [["clsName": "JJHomeViewController", "title": "首页", "imageName": "home"],
-                         ["clsName": "JJDiscoverViewController", "title": "发现", "imageName": "discover"],
+        let childList = [["clsName": "JJHomeViewController", "title": "首页", "imageName": "home", "visitorView": ["imageName": "", "message": "关注一些人，在这里可以看到一些你喜欢的事情"]],
+                         ["clsName": "JJDiscoverViewController", "title": "发现", "imageName": "discover", "visitorView": ["imageName": "visitordiscover_image_message", "message": "登录后，可以发现一些你喜欢的人或事"]],
                          ["clsName": "xxx"],
-                         ["clsName": "JJFriendsViewController", "title": "消息", "imageName": "message_center"],
-                         ["clsName": "JJProfileViewController", "title": "我", "imageName": "profile"]
+                         ["clsName": "JJFriendsViewController", "title": "消息", "imageName": "message_center", "visitorView": ["imageName": "visitordiscover_image_message", "message": "登录后，可以接收到你关注的人的消息"]],
+                         ["clsName": "JJProfileViewController", "title": "我", "imageName": "profile", "visitorView": ["imageName": "visitordiscover_image_profile", "message": "登录后，可以发现一些好玩的事情"]]
         ]
         
         // 遍历数组获取子控制器，添加子控制器到数组
@@ -88,6 +87,8 @@ extension JJMainViewController {
         vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .highlighted)
         // 设置字体大小
         vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], for: .normal)
+        // 设置根控制器的显示内容字典
+        vc.dictList = dict["visitorView"] as? [String : String]
         
         let nav = JJNavigationController(rootViewController: vc)
         // 返回控制器

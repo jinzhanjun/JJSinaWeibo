@@ -20,6 +20,7 @@ class JJNavigationController: UINavigationController {
     // 重写push方法，使得跟控制器不隐藏tabbar， push第二个控制器的时候会隐藏tabbar
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
+        // 子控制器栈内有控制器，就设置导航栏标题。（导航控制器的根控制器不算作子控制器）
         if children.count > 0 {
             
             viewController.hidesBottomBarWhenPushed = true
