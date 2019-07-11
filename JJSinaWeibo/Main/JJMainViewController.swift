@@ -10,6 +10,7 @@ import UIKit
 
 class JJMainViewController: UITabBarController {
     
+    var childList: [[String: AnyObject]]?
     // 懒加载控制器数组
     lazy var vcList = [UIViewController]()
     // 懒加载评论按钮
@@ -18,18 +19,17 @@ class JJMainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let childList = [["clsName": "JJHomeViewController", "title": "首页", "imageName": "home", "visitorView": ["imageName": "", "message": "关注一些人，在这里可以看到一些你喜欢的事情"]],
-                         ["clsName": "JJDiscoverViewController", "title": "发现", "imageName": "discover", "visitorView": ["imageName": "visitordiscover_image_message", "message": "登录后，可以发现一些你喜欢的人或事"]],
-                         ["clsName": "xxx"],
-                         ["clsName": "JJFriendsViewController", "title": "消息", "imageName": "message_center", "visitorView": ["imageName": "visitordiscover_image_message", "message": "登录后，可以接收到你关注的人的消息"]],
-                         ["clsName": "JJProfileViewController", "title": "我", "imageName": "profile", "visitorView": ["imageName": "visitordiscover_image_profile", "message": "登录后，可以发现一些好玩的事情"]]
-        ]
+        // 从Bundle中加载json
+        guard let urlString = Bundle.main.path(forResource: "childList.json", ofType: nil),
+        let data = NSData.init(contentsOfFile: urlString),
+        let childList = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: AnyObject]]
+        else { return }
         
         // 遍历数组获取子控制器，添加子控制器到数组
         for i in childList {
-            
+
             let vc = setChildController(dict: i)
-            
+
             vcList.append(vc)
         }
         
