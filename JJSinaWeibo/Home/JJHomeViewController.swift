@@ -51,6 +51,10 @@ class JJHomeViewController: JJBaseViewController {
     override func setupNavigationBar() {
         super.setupNavigationBar()
         
+        // 判断用户是否登录，如果没有登录，就不设置导航栏左侧的好友按钮，如果登录就设置
+        if !isLogon {
+            return
+        }
         // 设置导航栏左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(pushFriends))
     }
