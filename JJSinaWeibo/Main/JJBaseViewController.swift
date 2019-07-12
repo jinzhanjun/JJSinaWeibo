@@ -55,10 +55,17 @@ class JJBaseViewController: UIViewController {
         visitorView?.dict = dictList
         view.insertSubview(visitorView!, belowSubview: navBar)
         
+        // 给注册和登录按钮添加监听方法
+        visitorView?.registBtn.addTarget(self, action: #selector(regist), for: .touchUpInside)
+        visitorView?.loginBtn.addTarget(self, action: #selector(login), for: .touchUpInside)
+        
+        // 添加登录之前导航栏左右按钮为 注册 和 登录
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", normalColor: UIColor.orange, highlightedColor: UIColor.orange, target: self, action: #selector(regist))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", normalColor: UIColor.orange, highlightedColor: UIColor.orange, target: self, action: #selector(login))
     }
     
     // 设置tableview
-    private func setupTableView() {
+    func setupTableView() {
         // 实例化tableview
         tableView = UITableView(frame: view.frame, style: .plain)
         // 取消视图的内容自动调整
@@ -82,7 +89,7 @@ class JJBaseViewController: UIViewController {
     }
 
     // 设置导航栏
-    func setupNavigationBar() {
+    private func setupNavigationBar() {
         // 给自定义导航条添加导航条目
         navBar.items = [navItem]
         // 设置导航条透明时的背景颜色
@@ -93,6 +100,17 @@ class JJBaseViewController: UIViewController {
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
         // 添加自定义导航条
         view.addSubview(navBar)
+    }
+}
+
+/// 注册登录按钮监听方法拓展
+extension JJBaseViewController {
+    
+    @objc func regist() {
+        print("注册")
+    }
+    @objc func login() {
+        print("登录")
     }
 }
 

@@ -9,6 +9,22 @@
 import UIKit
 
 class JJVisitorView: UIView {
+    
+    /// 懒加载注册按钮
+    lazy var registBtn: UIButton = UIButton.cz_textButton(
+        "注册",
+        fontSize: 14,
+        normalColor: UIColor.orange,
+        highlightedColor: UIColor.orange,
+        backgroundImageName: "common_button_white_disable")
+    /// 懒加载登录按钮
+    lazy var loginBtn: UIButton = UIButton.cz_textButton(
+        "登录",
+        fontSize: 14,
+        normalColor: UIColor.orange,
+        highlightedColor: UIColor.orange,
+        backgroundImageName: "common_button_white_disable")
+    
     /// 访客视图信息字典 [imagename / message]， 如果为首页就什么都不设置
     var dict: [String: String]? {
         didSet {
@@ -66,20 +82,6 @@ class JJVisitorView: UIView {
         withText: "登录后，可以看到你喜欢的一些事情  关注一些人，在这里可",
         fontSize: 14,
         color: UIColor.darkGray)
-    /// 懒加载注册按钮
-    private lazy var registBtn: UIButton = UIButton.cz_textButton(
-        "注册",
-        fontSize: 14,
-        normalColor: UIColor.orange,
-        highlightedColor: UIColor.orange,
-        backgroundImageName: "common_button_white_disable")
-    /// 懒加载登录按钮
-    private lazy var loginBtn: UIButton = UIButton.cz_textButton(
-        "登录",
-        fontSize: 14,
-        normalColor: UIColor.orange,
-        highlightedColor: UIColor.orange,
-        backgroundImageName: "common_button_white_disable")
     
     // 设置界面，添加动画
     private func setupUI() {

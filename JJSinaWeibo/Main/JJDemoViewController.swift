@@ -16,8 +16,8 @@ class JJDemoViewController: JJBaseViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func setupNavigationBar() {
-        super.setupNavigationBar()
+    override func setupTableView() {
+        super.setupTableView()
         // 设置导航条标题
         navItem.title = "第" + String(navigationController?.children.count ?? 0) + "个"
         

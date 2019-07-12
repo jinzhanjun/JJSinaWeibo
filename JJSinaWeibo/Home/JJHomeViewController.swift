@@ -17,9 +17,6 @@ class JJHomeViewController: JJBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 注册可重用cell
-        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         // 加载数据
         loadData()
     }
@@ -48,15 +45,13 @@ class JJHomeViewController: JJBaseViewController {
         }
     }
     
-    override func setupNavigationBar() {
-        super.setupNavigationBar()
-        
-        // 判断用户是否登录，如果没有登录，就不设置导航栏左侧的好友按钮，如果登录就设置
-        if !isLogon {
-            return
-        }
+    override func setupTableView() {
+        super.setupTableView()
         // 设置导航栏左侧按钮
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", normalColor: UIColor.darkGray, highlightedColor: UIColor.orange, target: self, action: #selector(pushFriends))
+        
+        // 注册可重用cell
+        self.tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
     }
     
     // 注册可重用cell
