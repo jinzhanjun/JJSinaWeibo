@@ -87,7 +87,6 @@ class JJBaseViewController: UIViewController {
         refreshController?.addTarget(self, action: #selector(loadData), for: .valueChanged)
         tableView?.addSubview(refreshController!)
     }
-
     // 设置导航栏
     private func setupNavigationBar() {
         // 给自定义导航条添加导航条目
@@ -113,7 +112,6 @@ extension JJBaseViewController {
         print("登录")
     }
 }
-
 // 遵守协议，实现数据源方法，只是列出方法，并不具体实现，具体实现有子类完成！
 extension JJBaseViewController: UITableViewDataSource, UITableViewDelegate {
     // 指定返回的组
