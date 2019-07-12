@@ -19,17 +19,27 @@ class JJMainViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // 1、判断沙盒中是否有json
+        // 获取沙盒路径
+        let sandBoxUrlStr = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        var fileUrlStr = (sandBoxUrlStr as NSString).appendingPathComponent("childList.json")
+        
+        var data = NSData(contentsOfFile: fileUrlStr)
+        
+        // 判断data是否有值，如果有，就用沙盒中的data，如果没有，就从Bundle中加载
+        if data == nil {
+            fileUrlStr = Bundle.main.path(forResource: "childList.json", ofType: nil)!
+            data = NSData(contentsOfFile: fileUrlStr)
+        }
+        
         // 从Bundle中加载json
-        guard let urlString = Bundle.main.path(forResource: "childList.json", ofType: nil),
-        let data = NSData.init(contentsOfFile: urlString),
-        let childList = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: AnyObject]]
+        guard let childList = try? JSONSerialization.jsonObject(with: data! as Data, options: []) as? [[String: AnyObject]]
         else { return }
         
         // 遍历数组获取子控制器，添加子控制器到数组
         for i in childList {
 
             let vc = setChildController(dict: i)
-
             vcList.append(vc)
         }
         

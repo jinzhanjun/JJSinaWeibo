@@ -36,7 +36,6 @@ class JJVisitorView: UIView {
     override init(frame: CGRect) {
         
         super.init(frame: frame)
-        backgroundColor = UIColor.cz_color(withRed: 237, green: 237, blue: 237)
         setupUI()
     }
 
@@ -84,6 +83,8 @@ class JJVisitorView: UIView {
     
     // 设置界面，添加动画
     private func setupUI() {
+        
+        backgroundColor = UIColor.cz_color(withRed: 237, green: 237, blue: 237)
         
         addSubview(iconView)
         addSubview(maskIconView)

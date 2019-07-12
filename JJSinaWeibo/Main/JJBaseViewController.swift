@@ -52,7 +52,7 @@ class JJBaseViewController: UIViewController {
     private func setupVisitorView() {
         
         visitorView = JJVisitorView(frame: view.frame)
-        visitorView!.dict = dictList ?? [:]
+        visitorView?.dict = dictList
         view.insertSubview(visitorView!, belowSubview: navBar)
         
     }

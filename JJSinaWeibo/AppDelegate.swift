@@ -36,30 +36,21 @@ extension AppDelegate {
     
     // 模拟网络加载数据，并写入沙盒
     private func loadInfoFromeWeb() {
-//        // 首先判断 沙盒中是否有文件，如果没有，就从网络中加载
-//        let sandBoxUrlString = getDocument()
-//        sandBoxUrlString
-//        
-//        // 获取url
-//        let url = URL(fileURLWithPath: "Users/jinzhanjun/Desktop/childList.plist")
-//        
-//        guard let data = try? Data(contentsOf: url, options: []) else { return }
-//        // 将其写入沙盒中
-//
-//        print(sandBoxUrlString)
-//        let sandBoxUrl = URL(fileURLWithPath: sandBoxUrlString)
-//        
-//        try? data.write(to: sandBoxUrl)
-    }
-    
-    // 获取沙盒路径
-    private func getDocument() -> [String] {
-        // 判断沙盒中是否有访客视图数据
-        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last! as NSString
-        
-        let fileName = ["childList.json"]
-        
-        return path.strings(byAppendingPaths: fileName)
+        // 异步加载网络数据
+        DispatchQueue.global().async {
+            // 获取url
+            let url = URL(fileURLWithPath: "Users/jinzhanjun/Desktop/childList2.json")
+            // 获取data
+            guard let data = try? Data(contentsOf: url, options: []) else { return }
+            // 获取沙盒路径字符串
+            let sandBoxUrl = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            // 拼接文件路径字符串
+            let filePath = (sandBoxUrl as NSString).appendingPathComponent("childList.json")
+            // 获取沙盒中文件的路径
+            let sandUrl = URL(fileURLWithPath: filePath)
+            // 写入沙盒
+            try? data.write(to: sandUrl)
+        }
     }
 }
 
