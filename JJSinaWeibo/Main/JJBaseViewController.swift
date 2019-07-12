@@ -60,8 +60,8 @@ class JJBaseViewController: UIViewController {
         visitorView?.loginBtn.addTarget(self, action: #selector(login), for: .touchUpInside)
         
         // 添加登录之前导航栏左右按钮为 注册 和 登录
-        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", normalColor: UIColor.orange, highlightedColor: UIColor.orange, target: self, action: #selector(regist))
-        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", normalColor: UIColor.orange, highlightedColor: UIColor.orange, target: self, action: #selector(login))
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(regist))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(login))
     }
     
     // 设置tableview
@@ -94,7 +94,7 @@ class JJBaseViewController: UIViewController {
         navBar.items = [navItem]
         // 设置导航条透明时的背景颜色
         navBar.barTintColor = UIColor.cz_color(withHex: 0xF6F6F6)
-        // 设置导航条的Items透明时的背景颜色
+        // 设置导航条的Items（包括左侧、右侧按钮和中间标题）透明时的背景颜色
         navBar.tintColor = UIColor.orange
         // 设置导航条标题的字体
         navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.darkGray]
