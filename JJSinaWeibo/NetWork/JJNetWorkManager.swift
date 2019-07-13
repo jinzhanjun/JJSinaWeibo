@@ -1,0 +1,52 @@
+//
+//  JJNetWorkManager.swift
+//  JJSinaWeibo
+//
+//  Created by 金占军 on 2019/7/13.
+//  Copyright © 2019 金占军. All rights reserved.
+//
+
+import UIKit
+import AFNetworking
+
+/// swift 中枚举支持任意类型
+/// OC中 switch/enum 只支持数据类型
+/// 定义请求方式
+enum WBHTTPMethod {
+    case GET
+    case POST
+}
+
+/// 网络管理工具
+class JJNetWorkManager: AFHTTPSessionManager {
+    /// 静态区/常量/ 闭包
+    /// 在第一次访问时，执行闭包，并且将结果保存在 shared 常量中
+    static let shared = JJNetWorkManager()
+    
+    /// 封装 GET/POST 请求
+    ///
+    /// - Parameters:
+    ///   - Method: 请求方式GET、POST
+    ///   - URLString: url
+    ///   - parameters: 请求参数[String: Any]
+    ///   - completion: 完成回调 json 、 isSuccess
+    func request(Method: WBHTTPMethod = .GET, URLString: String, parameters: [String: Any], completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
+        
+        let success = { (task: URLSessionDataTask, result: Any?) -> () in
+            completion(result, true)
+        }
+        
+        let failure = { (task: URLSessionDataTask?, error: Error) -> () in
+            completion(nil, false)
+            print("网络请求失败 \(error)")
+        }
+        
+        if Method == .GET {
+            // GET请求方法
+            get(URLString, parameters: parameters, progress: nil, success: success, failure: failure)
+        } else {
+            // POST 请求方法
+          post(URLString, parameters: parameters, progress: nil, success: success, failure: failure)
+        }
+    }
+}

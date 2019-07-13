@@ -23,6 +23,15 @@ class JJHomeViewController: JJBaseViewController {
 
     // 模拟延迟加载数据
     override func loadData() {
+        
+        // 从网络上加载数据
+        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
+        let params = ["access_token": "2.00LGIqRE8CbfKD95a2b89eb6aAVNRB"]
+        
+        JJNetWorkManager.shared.request(Method: .GET, URLString: url, parameters: params) { (json, isSuccess) in
+            print(json)
+        }
+        
         // 异步加载数据
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             

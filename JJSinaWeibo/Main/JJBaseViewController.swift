@@ -12,7 +12,7 @@ class JJBaseViewController: UIViewController {
     /// 界面内容显示字典
     var dictList: [String: String]?
     /// 是否登录标记
-    var isLogon = false
+    var isLogon = true
     /// 登录界面
     var visitorView: JJVisitorView?
     
