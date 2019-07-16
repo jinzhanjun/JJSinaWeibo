@@ -21,13 +21,14 @@ class JJStatusViewModel {
     
     func statusModel(completion: @escaping (_ isSuccess: Bool)->()){
         
-        JJNetWorkManager.shared.loadNetWorkData { (json, isSuccess) in
+        let since_id = modelArray.first?.id ?? 0
+        
+        JJNetWorkManager.shared.loadNetWorkData(since_id: since_id, max_id: 0) { (json, isSuccess) in
             guard let array = NSArray.yy_modelArray(with: JJStatusModel.self, json: json ?? []) as? [JJStatusModel] else {
                 completion(isSuccess)
                 return
             }
-            
-            self.modelArray += array
+            self.modelArray  = array + self.modelArray
             completion(isSuccess)
         }
     }

@@ -26,8 +26,6 @@ class JJHomeViewController: JJBaseViewController {
     // 模拟延迟加载数据
     override func loadData() {
         // 异步加载数据
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
-            
             self.viewModel.statusModel { (isSuccess) in
                 if isSuccess {
                     print("字典转模型成功")
@@ -35,24 +33,12 @@ class JJHomeViewController: JJBaseViewController {
                 }else {
                     print("字典转模型失败")
                 }
-            }
-//
-//            // 判断是否为下拉刷新
-//            for i in 0..<20 {
-//                // 上拉刷新
-//                if self.ispullUp {
-//                    self.dataList.append("上拉\(i)")
-//                } else {
-//                    self.dataList.insert(i.description, at: 0)
-//                }
-//            }
-            // 结束刷新控件
-            self.refreshController?.endRefreshing()
-            // 重新加载数据
-            self.tableView?.reloadData()
-            
-            // 恢复上拉刷新标记
-            self.ispullUp = false
+                // 结束刷新控件
+                self.refreshController?.endRefreshing()
+                // 重新加载数据
+                self.tableView?.reloadData()
+                // 恢复上拉刷新标记
+                self.ispullUp = false
         }
     }
     

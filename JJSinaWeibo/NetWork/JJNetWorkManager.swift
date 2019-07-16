@@ -33,7 +33,6 @@ class JJNetWorkManager: AFHTTPSessionManager {
             print("没有token！")
             return
         }
-        
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
         var params = [String: String]()
         params["access_token"] = token
