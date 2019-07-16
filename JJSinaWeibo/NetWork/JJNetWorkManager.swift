@@ -23,6 +23,28 @@ class JJNetWorkManager: AFHTTPSessionManager {
     /// 在第一次访问时，执行闭包，并且将结果保存在 shared 常量中
     static let shared = JJNetWorkManager()
     
+    /// 访问令牌
+    var token: String = "2.00LGIqREtNplQC4aedaec6f10ZkERu"
+    
+    // 通过访问令牌获取网络数据
+    func tokenRequest(token: String?, completion: @escaping (_ json: [[String: AnyObject]]?, _ isSuccess: Bool) -> ()) {
+        
+        if token == nil {
+            print("没有token！")
+            return
+        }
+        
+        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
+        var params = [String: String]()
+        params["access_token"] = token
+        request(Method: .GET, URLString: url, parameters: params) { (json, isSuccess) in
+            let result = json as? [String: AnyObject]
+            let status = result?["statuses"] as? [[String: AnyObject]]
+            // 完成回调
+            completion(status, isSuccess)
+        }
+    }
+
     /// 封装 GET/POST 请求
     ///
     /// - Parameters:
@@ -31,16 +53,18 @@ class JJNetWorkManager: AFHTTPSessionManager {
     ///   - parameters: 请求参数[String: Any]
     ///   - completion: 完成回调 json 、 isSuccess
     func request(Method: WBHTTPMethod = .GET, URLString: String, parameters: [String: Any], completion: @escaping (_ json: Any?, _ isSuccess: Bool) -> ()) {
-        
         let success = { (task: URLSessionDataTask, result: Any?) -> () in
             completion(result, true)
         }
-        
         let failure = { (task: URLSessionDataTask?, error: Error) -> () in
+            
+            if (task?.response as? HTTPURLResponse)?.statusCode  == 403 {
+               print("token过期了")
+            }
+            
             completion(nil, false)
             print("网络请求失败 \(error)")
         }
-        
         if Method == .GET {
             // GET请求方法
             get(URLString, parameters: parameters, progress: nil, success: success, failure: failure)

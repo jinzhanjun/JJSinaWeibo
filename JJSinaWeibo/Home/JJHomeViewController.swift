@@ -12,8 +12,10 @@ let cellID = "cellID"
 
 class JJHomeViewController: JJBaseViewController {
 
-    /// 定义数据
+    /// 定义网络加载数据
     lazy var dataList = [String]()
+    /// 定义视图模型
+    lazy var viewModel = JJStatusViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,27 +25,27 @@ class JJHomeViewController: JJBaseViewController {
 
     // 模拟延迟加载数据
     override func loadData() {
-        
-        // 从网络上加载数据
-        let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token": "2.00LGIqRE8CbfKD95a2b89eb6aAVNRB"]
-        
-        JJNetWorkManager.shared.request(Method: .GET, URLString: url, parameters: params) { (json, isSuccess) in
-            print(json)
-        }
-        
         // 异步加载数据
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()) {
             
-            // 判断是否为下拉刷新
-            for i in 0..<20 {
-                // 上拉刷新
-                if self.ispullUp {
-                    self.dataList.append("上拉\(i)")
-                } else {
-                    self.dataList.insert(i.description, at: 0)
+            self.viewModel.statusModel { (isSuccess) in
+                if isSuccess {
+                    print("字典转模型成功")
+                    self.tableView?.reloadData()
+                }else {
+                    print("字典转模型失败")
                 }
             }
+//
+//            // 判断是否为下拉刷新
+//            for i in 0..<20 {
+//                // 上拉刷新
+//                if self.ispullUp {
+//                    self.dataList.append("上拉\(i)")
+//                } else {
+//                    self.dataList.insert(i.description, at: 0)
+//                }
+//            }
             // 结束刷新控件
             self.refreshController?.endRefreshing()
             // 重新加载数据
@@ -66,21 +68,17 @@ class JJHomeViewController: JJBaseViewController {
     // 注册可重用cell
     // 实现数据源方法
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataList.count
+        return viewModel.modelArray.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 获取可重用cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         // 设置cell
-        cell.textLabel?.text = dataList[indexPath.row]
+        cell.textLabel?.text = viewModel.modelArray[indexPath.row].text
         // 返回cell
         return cell
     }
-    
-//    // 如果将要显示最后一行
-//    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//    }
 }
 
 // 定义监听方法

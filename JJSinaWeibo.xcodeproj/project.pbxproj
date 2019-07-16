@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3228AB37EBFE547AC9A87F3A /* Pods_JJSinaWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DC691DBD76D5A3C2A34F91 /* Pods_JJSinaWeibo.framework */; };
 		7E0B116D22D19DC40050CD9A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */; };
+		7E4DA25A22DC8E5A000B70A5 /* JJStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DA25922DC8E5A000B70A5 /* JJStatusModel.swift */; };
+		7E4DA25D22DC8FB5000B70A5 /* JJStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DA25C22DC8FB5000B70A5 /* JJStatusViewModel.swift */; };
 		7E839A4422D0BEC50027FE1F /* JJDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */; };
 		7E839A4622D0D3040027FE1F /* UIbarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4522D0D3040027FE1F /* UIbarButtonItem+Extension.swift */; };
 		7E839A4822D1028E0027FE1F /* SecondNavgationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4722D1028E0027FE1F /* SecondNavgationBar.swift */; };
@@ -37,12 +39,14 @@
 		7EC884D822D645710035ACF5 /* JJVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC884D722D645710035ACF5 /* JJVisitorView.swift */; };
 		7ECCF75522D8C6C200F8DB92 /* childList.json in Resources */ = {isa = PBXBuildFile; fileRef = 7ECCF75422D8C6C200F8DB92 /* childList.json */; };
 		7EF4BE8922D98A1D00A8F947 /* JJNetWorkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4BE8822D98A1D00A8F947 /* JJNetWorkManager.swift */; };
-		7EF4BE8F22D9968600A8F947 /* JJNetWorkManager_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4BE8E22D9968600A8F947 /* JJNetWorkManager_Extension.swift */; };
+		7EF4BE9122D9AF0700A8F947 /* JJNetWorkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF4BE9022D9AF0700A8F947 /* JJNetWorkManager+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		473C905C7B36CCD20180B7EE /* Pods-JJSinaWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJSinaWeibo.release.xcconfig"; path = "Target Support Files/Pods-JJSinaWeibo/Pods-JJSinaWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		7E4DA25922DC8E5A000B70A5 /* JJStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJStatusModel.swift; sourceTree = "<group>"; };
+		7E4DA25C22DC8FB5000B70A5 /* JJStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJStatusViewModel.swift; sourceTree = "<group>"; };
 		7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJDemoViewController.swift; sourceTree = "<group>"; };
 		7E839A4522D0D3040027FE1F /* UIbarButtonItem+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIbarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		7E839A4722D1028E0027FE1F /* SecondNavgationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondNavgationBar.swift; sourceTree = "<group>"; };
@@ -87,7 +91,7 @@
 		7EC884D722D645710035ACF5 /* JJVisitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJVisitorView.swift; sourceTree = "<group>"; };
 		7ECCF75422D8C6C200F8DB92 /* childList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = childList.json; sourceTree = "<group>"; };
 		7EF4BE8822D98A1D00A8F947 /* JJNetWorkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJNetWorkManager.swift; sourceTree = "<group>"; };
-		7EF4BE8E22D9968600A8F947 /* JJNetWorkManager_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJNetWorkManager_Extension.swift; sourceTree = "<group>"; };
+		7EF4BE9022D9AF0700A8F947 /* JJNetWorkManager+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JJNetWorkManager+Extension.swift"; sourceTree = "<group>"; };
 		A7D3C2B97C2AAFA42D451E47 /* Pods-JJSinaWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJSinaWeibo.debug.xcconfig"; path = "Target Support Files/Pods-JJSinaWeibo/Pods-JJSinaWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		B0DC691DBD76D5A3C2A34F91 /* Pods_JJSinaWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JJSinaWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -139,6 +143,22 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7E4DA25822DC8E32000B70A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E4DA25922DC8E5A000B70A5 /* JJStatusModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7E4DA25B22DC8F6F000B70A5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7E4DA25C22DC8FB5000B70A5 /* JJStatusViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		7EA5B70822D04AE200DDDFD0 = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +180,8 @@
 		7EA5B71322D04AE200DDDFD0 /* JJSinaWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				7E4DA25B22DC8F6F000B70A5 /* ViewModel */,
+				7E4DA25822DC8E32000B70A5 /* Model */,
 				7EA5B73422D07A9600DDDFD0 /* Main */,
 				7EA5B73522D07A9D00DDDFD0 /* Home */,
 				7EA5B73622D07AAC00DDDFD0 /* Discover */,
@@ -258,7 +280,7 @@
 			isa = PBXGroup;
 			children = (
 				7EF4BE8822D98A1D00A8F947 /* JJNetWorkManager.swift */,
-				7EF4BE8E22D9968600A8F947 /* JJNetWorkManager_Extension.swift */,
+				7EF4BE9022D9AF0700A8F947 /* JJNetWorkManager+Extension.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -384,12 +406,12 @@
 				7EA5B71522D04AE200DDDFD0 /* AppDelegate.swift in Sources */,
 				7EA5B76722D09C3400DDDFD0 /* NSString+CZBase64.m in Sources */,
 				7EA5B74622D07CA900DDDFD0 /* JJFriendsViewController.swift in Sources */,
-				7EF4BE8F22D9968600A8F947 /* JJNetWorkManager_Extension.swift in Sources */,
 				7EA5B76A22D09C3400DDDFD0 /* NSObject+CZRuntime.m in Sources */,
 				7EA5B76D22D09C3400DDDFD0 /* NSAttributedString+CZAdditon.m in Sources */,
 				7EA5B76E22D09C3400DDDFD0 /* NSArray+Log.m in Sources */,
 				7EA5B76522D09C3400DDDFD0 /* UIScreen+CZAddition.m in Sources */,
 				7EA5B73E22D07C2D00DDDFD0 /* JJNavigationController.swift in Sources */,
+				7E4DA25D22DC8FB5000B70A5 /* JJStatusViewModel.swift in Sources */,
 				7EF4BE8922D98A1D00A8F947 /* JJNetWorkManager.swift in Sources */,
 				7EA5B73C22D07BE400DDDFD0 /* JJMainViewController.swift in Sources */,
 				7EA5B74822D07CB500DDDFD0 /* JJProfileViewController.swift in Sources */,
@@ -398,10 +420,12 @@
 				7E839A4422D0BEC50027FE1F /* JJDemoViewController.swift in Sources */,
 				7EA5B76C22D09C3400DDDFD0 /* NSString+CZHash.m in Sources */,
 				7EA5B76B22D09C3400DDDFD0 /* UIViewController+CZAddition.m in Sources */,
+				7EF4BE9122D9AF0700A8F947 /* JJNetWorkManager+Extension.swift in Sources */,
 				7EA5B74022D07C4800DDDFD0 /* JJBaseViewController.swift in Sources */,
 				7EA5B74222D07C7400DDDFD0 /* JJHomeViewController.swift in Sources */,
 				7EA5B76622D09C3400DDDFD0 /* UILabel+CZAddition.m in Sources */,
 				7EC884D822D645710035ACF5 /* JJVisitorView.swift in Sources */,
+				7E4DA25A22DC8E5A000B70A5 /* JJStatusModel.swift in Sources */,
 				7EA5B76822D09C3400DDDFD0 /* NSString+CZPath.m in Sources */,
 				7EA5B76322D09C3400DDDFD0 /* UIColor+CZAddition.m in Sources */,
 				7EA5B76422D09C3400DDDFD0 /* UIView+CZAddition.m in Sources */,
@@ -556,6 +580,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Zhanjun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = JJSinaWeibo/Bridge.h;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -578,6 +603,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Zhanjun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = JJSinaWeibo/Bridge.h;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
