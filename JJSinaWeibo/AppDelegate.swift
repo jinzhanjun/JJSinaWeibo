@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NotificationCenter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let settings = UIUserNotificationSettings.init(types: [.alert, .badge, .sound], categories: nil)
+        application.registerUserNotificationSettings(settings)
         // 实例化window
         window = UIWindow()
         
@@ -49,6 +52,12 @@ extension AppDelegate {
             // 写入沙盒
             try? data.write(to: sandUrl)
         }
+    }
+}
+
+extension AppDelegate {
+    private func getQuanXian() {
+//        usernotification
     }
 }
 

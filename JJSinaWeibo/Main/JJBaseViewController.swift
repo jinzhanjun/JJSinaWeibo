@@ -19,7 +19,7 @@ class JJBaseViewController: UIViewController {
     /// 懒加载 tableView
     var tableView: UITableView?
     var refreshController: UIRefreshControl?
-    /// 定义是否刷新
+    /// 定义是否下拉刷新
     var ispullUp = false
     
     /// 自定义导航条
@@ -129,7 +129,7 @@ extension JJBaseViewController: UITableViewDataSource, UITableViewDelegate {
         // 获取最后一行
         let row = indexPath.row
         // 获取section的数量，用来判断是否为最大的 section
-        let section = tableView.numberOfSections
+        let section = tableView.numberOfSections - 1
         
         if row < 0 || section < 0 {
             return
@@ -137,7 +137,7 @@ extension JJBaseViewController: UITableViewDataSource, UITableViewDelegate {
         
         let count = tableView.numberOfRows(inSection: indexPath.section)
 
-        // 如果将要显示最后一行，并且没有上拉刷新，就下拉刷新
+        // 如果将要显示最后一行，并且没有上拉刷新，就刷新
         if row == (count - 1) && !ispullUp {
             ispullUp = true
             // 开始刷新

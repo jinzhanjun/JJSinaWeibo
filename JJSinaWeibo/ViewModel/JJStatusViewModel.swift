@@ -19,16 +19,24 @@ class JJStatusViewModel {
     lazy var model = JJStatusModel()
     lazy var modelArray = [JJStatusModel]()
     
-    func statusModel(completion: @escaping (_ isSuccess: Bool)->()){
+    func statusModel(isPullup: Bool = false, completion: @escaping (_ isSuccess: Bool)->()){
         
         let since_id = modelArray.first?.id ?? 0
+        let max_id = modelArray.last?.id ?? 0
         
-        JJNetWorkManager.shared.loadNetWorkData(since_id: since_id, max_id: 0) { (json, isSuccess) in
+        JJNetWorkManager.shared.loadNetWorkData(since_id: since_id, max_id: max_id) { (json, isSuccess) in
             guard let array = NSArray.yy_modelArray(with: JJStatusModel.self, json: json ?? []) as? [JJStatusModel] else {
                 completion(isSuccess)
                 return
             }
-            self.modelArray  = array + self.modelArray
+            
+            if !isPullup {
+                self.modelArray  = array + self.modelArray
+            } else {
+                self.modelArray += array
+            }
+            
+            
             completion(isSuccess)
         }
     }

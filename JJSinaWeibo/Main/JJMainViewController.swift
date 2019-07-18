@@ -13,6 +13,8 @@ class JJMainViewController: UITabBarController {
     var childList: [[String: AnyObject]]?
     // 懒加载控制器数组
     lazy var vcList = [UIViewController]()
+    /// 懒加载定时器
+    lazy var timer = Timer()
     // 懒加载评论按钮
     lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
 
@@ -46,10 +48,34 @@ class JJMainViewController: UITabBarController {
         // 设置子控制器
         viewControllers = vcList
         
+        // 添加定时器
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(unreadCount), userInfo: nil, repeats: true)
+        
         //添加评论按钮
         setupComposeButton()
         // 设置界面
         setupUI()
+    }
+    
+    /// 视图销毁
+    deinit {
+        // 销毁时钟
+        timer.invalidate()
+    }
+}
+/// 未读微博数量设置
+extension JJMainViewController {
+    @objc private func unreadCount() {
+        let netWork = JJNetWorkManager()
+        netWork.loadUnreadCount { (unreadCount, isSuccess) in
+            // 获取首页控制器
+            let vc = self.children[0] as! UINavigationController
+            // 设置首页控制器的tabbar 的上标
+            vc.tabBarItem.badgeValue = "\(unreadCount)"
+            
+            // 设置
+            UIApplication.shared.applicationIconBadgeNumber = unreadCount
+        }
     }
 }
 

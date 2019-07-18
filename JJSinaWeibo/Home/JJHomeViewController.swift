@@ -25,8 +25,9 @@ class JJHomeViewController: JJBaseViewController {
 
     // 模拟延迟加载数据
     override func loadData() {
+        
         // 异步加载数据
-            self.viewModel.statusModel { (isSuccess) in
+        self.viewModel.statusModel(isPullup: ispullUp) { (isSuccess) in
                 if isSuccess {
                     print("字典转模型成功")
                     self.tableView?.reloadData()
@@ -35,11 +36,9 @@ class JJHomeViewController: JJBaseViewController {
                 }
                 // 结束刷新控件
                 self.refreshController?.endRefreshing()
-                // 重新加载数据
-                self.tableView?.reloadData()
-                // 恢复上拉刷新标记
-                self.ispullUp = false
         }
+        // 恢复上拉刷新标记
+        self.ispullUp = false
     }
     
     override func setupTableView() {
