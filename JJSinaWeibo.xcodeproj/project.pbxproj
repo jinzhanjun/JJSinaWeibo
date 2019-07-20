@@ -10,6 +10,7 @@
 		3228AB37EBFE547AC9A87F3A /* Pods_JJSinaWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DC691DBD76D5A3C2A34F91 /* Pods_JJSinaWeibo.framework */; };
 		7E0B116D22D19DC40050CD9A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */; };
 		7E1CF67D22E3409C00FCC4E4 /* JJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1CF67C22E3409C00FCC4E4 /* JJWebViewController.swift */; };
+		7E1CF67F22E36E7E00FCC4E4 /* JJCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1CF67E22E36E7E00FCC4E4 /* JJCommon.swift */; };
 		7E4DA25A22DC8E5A000B70A5 /* JJStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DA25922DC8E5A000B70A5 /* JJStatusModel.swift */; };
 		7E4DA25D22DC8FB5000B70A5 /* JJStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DA25C22DC8FB5000B70A5 /* JJStatusViewModel.swift */; };
 		7E839A4422D0BEC50027FE1F /* JJDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */; };
@@ -47,6 +48,7 @@
 		473C905C7B36CCD20180B7EE /* Pods-JJSinaWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJSinaWeibo.release.xcconfig"; path = "Target Support Files/Pods-JJSinaWeibo/Pods-JJSinaWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
 		7E1CF67C22E3409C00FCC4E4 /* JJWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJWebViewController.swift; sourceTree = "<group>"; };
+		7E1CF67E22E36E7E00FCC4E4 /* JJCommon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJCommon.swift; sourceTree = "<group>"; };
 		7E4DA25922DC8E5A000B70A5 /* JJStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJStatusModel.swift; sourceTree = "<group>"; };
 		7E4DA25C22DC8FB5000B70A5 /* JJStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJStatusViewModel.swift; sourceTree = "<group>"; };
 		7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJDemoViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 				7EA5B77122D09DC500DDDFD0 /* Bridge.h */,
 				7EA5B72022D04AE200DDDFD0 /* Info.plist */,
 				7E0B116A22D19D890050CD9A /* Tools */,
+				7E1CF67E22E36E7E00FCC4E4 /* JJCommon.swift */,
 			);
 			path = JJSinaWeibo;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E1CF67F22E36E7E00FCC4E4 /* JJCommon.swift in Sources */,
 				7E839A4822D1028E0027FE1F /* SecondNavgationBar.swift in Sources */,
 				7E839A4622D0D3040027FE1F /* UIbarButtonItem+Extension.swift in Sources */,
 				7EA5B71522D04AE200DDDFD0 /* AppDelegate.swift in Sources */,

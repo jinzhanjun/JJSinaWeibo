@@ -17,12 +17,6 @@ class JJMainViewController: UITabBarController {
     lazy var timer = Timer()
     // 懒加载评论按钮
     lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
-    // 试图生命周期中的加载视图
-    override func loadView() {
-        // 设置代理为自己
-        delegate = self
-        super.loadView()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,12 +54,26 @@ class JJMainViewController: UITabBarController {
         setupComposeButton()
         // 设置界面
         setupUI()
+        // 设置代理为自己
+        delegate = self
+        // 注册用户登录通知
+        NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: JJUserSholdLoginNotification), object: nil)
+        
     }
     
     /// 视图销毁
     deinit {
         // 销毁时钟
         timer.invalidate()
+        // 注销通知
+        NotificationCenter.default.removeObserver(self)
+    }
+    /// 通知监听方法
+    @objc func userLogin(n: Notification) {
+        
+        let nav = UINavigationController(rootViewController: JJWebViewController())
+        present(nav, animated: true, completion: nil)
+        print(n)
     }
 }
 /// 时钟监听方法

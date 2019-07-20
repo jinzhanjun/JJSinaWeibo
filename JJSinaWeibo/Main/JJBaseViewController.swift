@@ -107,8 +107,8 @@ extension JJBaseViewController {
         print("注册")
     }
     @objc func login() {
-        // 展现登录控制器页面
-        setupWebView()
+        // 发送用户登录通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: JJUserSholdLoginNotification), object: nil)
         print("登录")
     }
 }
@@ -147,9 +147,4 @@ extension JJBaseViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 extension JJBaseViewController {
-    private func setupWebView() {
-        let nav = UINavigationController(rootViewController: JJWebViewController())
-        present(nav, animated: true, completion: nil)
-    }
-
 }
