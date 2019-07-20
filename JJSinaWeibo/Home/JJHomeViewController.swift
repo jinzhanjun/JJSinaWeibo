@@ -19,8 +19,8 @@ class JJHomeViewController: JJBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 加载数据
-        loadData()
+        // 根据用户是否登录来判断是否加载数据
+        JJNetWorkManager.shared.userLogon ? loadData() : ()
     }
 
     // 模拟延迟加载数据

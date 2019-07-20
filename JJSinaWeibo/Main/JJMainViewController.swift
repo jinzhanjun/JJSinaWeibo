@@ -17,10 +17,15 @@ class JJMainViewController: UITabBarController {
     lazy var timer = Timer()
     // 懒加载评论按钮
     lazy var composeButton: UIButton = UIButton.cz_imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
+    // 试图生命周期中的加载视图
+    override func loadView() {
+        // 设置代理为自己
+        delegate = self
+        super.loadView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // 1、判断沙盒中是否有json
         // 获取沙盒路径
         let sandBoxUrlStr = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -49,7 +54,7 @@ class JJMainViewController: UITabBarController {
         viewControllers = vcList
         
         // 添加定时器
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(unreadCount), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(unreadCount), userInfo: nil, repeats: true)
         
         //添加评论按钮
         setupComposeButton()
@@ -63,15 +68,21 @@ class JJMainViewController: UITabBarController {
         timer.invalidate()
     }
 }
-/// 未读微博数量设置
+/// 时钟监听方法
 extension JJMainViewController {
+    // MARK: - 获取微博未读数量
     @objc private func unreadCount() {
+        // 如果没有登录，就不加载时钟
+        if !JJNetWorkManager.shared.userLogon {
+            return
+        }
+        
         let netWork = JJNetWorkManager()
         netWork.loadUnreadCount { (unreadCount, isSuccess) in
             // 获取首页控制器
             let vc = self.children[0] as! UINavigationController
             // 设置首页控制器的tabbar 的上标
-            vc.tabBarItem.badgeValue = "\(unreadCount)"
+            vc.tabBarItem.badgeValue = unreadCount != 0 ? "\(unreadCount)" : nil
             
             // 设置
             UIApplication.shared.applicationIconBadgeNumber = unreadCount
@@ -86,7 +97,7 @@ extension JJMainViewController {
         // 计算评论按钮的frame
         let w = tabBar.bounds.width / CGFloat(viewControllers?.count ?? 1) - 1
         
-        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w + 20, dy: 0)
         
         // 添加入tabbar
         tabBar.addSubview(composeButton)
@@ -120,7 +131,7 @@ extension JJMainViewController {
 //        NSAttributedString
         // 设置字体样式
         vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .normal)
-        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .highlighted)
+        vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.orange], for: .selected)
         // 设置字体大小
         vc.tabBarItem.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12)], for: .normal)
         // 设置根控制器的显示内容字典
@@ -129,5 +140,30 @@ extension JJMainViewController {
         let nav = JJNavigationController(rootViewController: vc)
         // 返回控制器
         return nav
+    }
+}
+
+/// 实现代理方法
+extension JJMainViewController: UITabBarControllerDelegate {
+    
+    /// 代理方法
+    ///
+    /// - Parameters:
+    ///   - tabBarController: 当前的tabbar
+    ///   - viewController: 将要显示的视图控制器
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        let idx = children.firstIndex(of: viewController)
+            // 判断点击的控制器是否与将要选择的控制器一致
+        if selectedIndex == 0 && idx == selectedIndex {
+            // 返回到顶部
+            let home = viewController.children.first as? JJHomeViewController
+            home?.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+            // 设置tabar角标为空
+            viewController.tabBarItem.badgeValue = nil
+            /// 设置应用程序角标为0
+            UIApplication.shared.applicationIconBadgeNumber = 0
+        }
+        return !viewController.isMember(of: UIViewController.self)
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3228AB37EBFE547AC9A87F3A /* Pods_JJSinaWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DC691DBD76D5A3C2A34F91 /* Pods_JJSinaWeibo.framework */; };
 		7E0B116D22D19DC40050CD9A /* Bundle+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */; };
+		7E1CF67D22E3409C00FCC4E4 /* JJWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1CF67C22E3409C00FCC4E4 /* JJWebViewController.swift */; };
 		7E4DA25A22DC8E5A000B70A5 /* JJStatusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DA25922DC8E5A000B70A5 /* JJStatusModel.swift */; };
 		7E4DA25D22DC8FB5000B70A5 /* JJStatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E4DA25C22DC8FB5000B70A5 /* JJStatusViewModel.swift */; };
 		7E839A4422D0BEC50027FE1F /* JJDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		473C905C7B36CCD20180B7EE /* Pods-JJSinaWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JJSinaWeibo.release.xcconfig"; path = "Target Support Files/Pods-JJSinaWeibo/Pods-JJSinaWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		7E0B116C22D19DC40050CD9A /* Bundle+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extensions.swift"; sourceTree = "<group>"; };
+		7E1CF67C22E3409C00FCC4E4 /* JJWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJWebViewController.swift; sourceTree = "<group>"; };
 		7E4DA25922DC8E5A000B70A5 /* JJStatusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJStatusModel.swift; sourceTree = "<group>"; };
 		7E4DA25C22DC8FB5000B70A5 /* JJStatusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJStatusViewModel.swift; sourceTree = "<group>"; };
 		7E839A4322D0BEC50027FE1F /* JJDemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JJDemoViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7E1CF67722E33FC500FCC4E4 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				7E1CF67C22E3409C00FCC4E4 /* JJWebViewController.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		7E4DA25822DC8E32000B70A5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,7 @@
 		7EA5B71322D04AE200DDDFD0 /* JJSinaWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				7E1CF67722E33FC500FCC4E4 /* WebView */,
 				7E4DA25B22DC8F6F000B70A5 /* ViewModel */,
 				7E4DA25822DC8E32000B70A5 /* Model */,
 				7EA5B73422D07A9600DDDFD0 /* Main */,
@@ -420,6 +431,7 @@
 				7E839A4422D0BEC50027FE1F /* JJDemoViewController.swift in Sources */,
 				7EA5B76C22D09C3400DDDFD0 /* NSString+CZHash.m in Sources */,
 				7EA5B76B22D09C3400DDDFD0 /* UIViewController+CZAddition.m in Sources */,
+				7E1CF67D22E3409C00FCC4E4 /* JJWebViewController.swift in Sources */,
 				7EF4BE9122D9AF0700A8F947 /* JJNetWorkManager+Extension.swift in Sources */,
 				7EA5B74022D07C4800DDDFD0 /* JJBaseViewController.swift in Sources */,
 				7EA5B74222D07C7400DDDFD0 /* JJHomeViewController.swift in Sources */,

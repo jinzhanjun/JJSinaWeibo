@@ -24,11 +24,13 @@ class JJNetWorkManager: AFHTTPSessionManager {
     static let shared = JJNetWorkManager()
     
     /// 访问令牌
-    var token: String = "2.00LGIqREtNplQC4aedaec6f10ZkERu"
-    
+    var accessToken: String? //= "2.00LGIqREtNplQC4aedaec6f10ZkERu"
+    /// 根据token判断用户是否登录
+    var userLogon: Bool {
+        return accessToken != nil
+    }
     // 通过访问令牌获取网络数据
     func tokenRequest(token: String?, completion: @escaping (_ json: [[String: AnyObject]]?, _ isSuccess: Bool) -> ()) {
-        
         if token == nil {
             print("没有token！")
             return

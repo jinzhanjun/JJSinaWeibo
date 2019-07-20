@@ -35,8 +35,6 @@ class JJStatusViewModel {
             } else {
                 self.modelArray += array
             }
-            
-            
             completion(isSuccess)
         }
     }

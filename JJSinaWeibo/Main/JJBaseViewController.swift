@@ -11,11 +11,8 @@ import UIKit
 class JJBaseViewController: UIViewController {
     /// 界面内容显示字典
     var dictList: [String: String]?
-    /// 是否登录标记
-    var isLogon = true
     /// 登录界面
     var visitorView: JJVisitorView?
-    
     /// 懒加载 tableView
     var tableView: UITableView?
     var refreshController: UIRefreshControl?
@@ -31,7 +28,8 @@ class JJBaseViewController: UIViewController {
         super.viewDidLoad()
 
         setupNavigationBar()
-        isLogon ? setupTableView() : setupVisitorView()
+        // MARK: - 用户登录/未登录
+        JJNetWorkManager.shared.userLogon ? setupTableView() : setupVisitorView()
     }
     
     // 重写 titile 方法，给自定义导航条设置标题
@@ -109,6 +107,8 @@ extension JJBaseViewController {
         print("注册")
     }
     @objc func login() {
+        // 展现登录控制器页面
+        setupWebView()
         print("登录")
     }
 }
@@ -144,4 +144,12 @@ extension JJBaseViewController: UITableViewDataSource, UITableViewDelegate {
             loadData()
         }
     }
+}
+
+extension JJBaseViewController {
+    private func setupWebView() {
+        let nav = UINavigationController(rootViewController: JJWebViewController())
+        present(nav, animated: true, completion: nil)
+    }
+
 }
