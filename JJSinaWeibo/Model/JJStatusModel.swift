@@ -17,7 +17,7 @@ class JJStatusModel: NSObject {
     @objc var id: Int64 = 0
     /// 用户发表信息状态
     @objc var text: String?
-    
+
     override var description: String {
         return yy_modelDescription()
     }

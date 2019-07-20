@@ -10,9 +10,12 @@ import UIKit
 
 class JJWebViewController: UIViewController {
     
+    private lazy var webView = UIWebView()
+    
     override func viewDidLoad() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", normalColor: UIColor.orange, highlightedColor: UIColor.orange, target: self, action: #selector(back))
-        view = UIWebView()
+        view = webView
+        title = "登录新浪微博"
         view.backgroundColor = UIColor.white
         super.viewDidLoad()
     }
