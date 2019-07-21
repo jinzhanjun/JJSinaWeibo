@@ -24,7 +24,7 @@ class JJNetWorkManager: AFHTTPSessionManager {
     static let shared = JJNetWorkManager()
     
     /// 访问令牌
-    var accessToken: String? //= "2.00LGIqREtNplQC4aedaec6f10ZkERu"
+    var accessToken: String? = "2.00LGIqRErQbMrB2b33e0780d0Wt5lT"
     /// 根据token判断用户是否登录
     var userLogon: Bool {
         return accessToken != nil

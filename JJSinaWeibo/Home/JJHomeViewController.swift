@@ -25,7 +25,6 @@ class JJHomeViewController: JJBaseViewController {
 
     // 模拟延迟加载数据
     override func loadData() {
-        
         // 异步加载数据
         self.viewModel.statusModel(isPullup: ispullUp) { (isSuccess) in
                 if isSuccess {
