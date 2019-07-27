@@ -19,15 +19,25 @@ enum WBHTTPMethod {
 
 /// 网络管理工具
 class JJNetWorkManager: AFHTTPSessionManager {
+    
+    lazy var userAccount = JJUserStatusModel()
     /// 静态区/常量/ 闭包
     /// 在第一次访问时，执行闭包，并且将结果保存在 shared 常量中
-    static let shared = JJNetWorkManager()
+    static let shared: JJNetWorkManager = {
+       
+        let instance = JJNetWorkManager()
+        
+        // 设置响应反序列化支持的数据类型
+        instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        
+        return instance
+    }()
     
     /// 访问令牌
     var accessToken: String? //= "2.00LGIqRErQbMrB2b33e0780d0Wt5lT"
     /// 根据token判断用户是否登录
     var userLogon: Bool {
-        return accessToken != nil
+        return userAccount.access_token != nil
     }
     // 通过访问令牌获取网络数据
     func tokenRequest(token: String?, completion: @escaping (_ json: [[String: AnyObject]]?, _ isSuccess: Bool) -> ()) {

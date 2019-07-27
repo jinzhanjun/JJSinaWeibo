@@ -11,3 +11,6 @@ import Foundation
 let JJUserSholdLoginNotification = "JJUserSholdLoginNotification"
 let Appkey = "1702281849"
 let redirect_uri = "http://baidu.com"
+let redirect_url_full = "http://www.baidu.com"
+let AppSecret = "6bea576eb06abcbd81e63376e0e1e60d"
+let JJUserLoginSuccessNotification = "JJUserLoginSuccessNotification"

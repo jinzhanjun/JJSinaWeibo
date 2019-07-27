@@ -30,6 +30,9 @@ class JJBaseViewController: UIViewController {
         setupNavigationBar()
         // MARK: - 用户登录/未登录
         JJNetWorkManager.shared.userLogon ? setupTableView() : setupVisitorView()
+        
+        // 注册通知(用户登录成功)
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: NSNotification.Name(rawValue: JJUserLoginSuccessNotification), object: nil)
     }
     
     // 重写 titile 方法，给自定义导航条设置标题
@@ -37,6 +40,11 @@ class JJBaseViewController: UIViewController {
         didSet {
             title = navItem.title
         }
+    }
+    
+    /// 登录成功监听方法
+    @objc private func loginSuccess() {
+        view = nil
     }
     
     // MARK: -刷新监听方法

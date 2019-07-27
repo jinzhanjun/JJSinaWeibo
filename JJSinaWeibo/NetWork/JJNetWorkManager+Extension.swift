@@ -15,7 +15,7 @@ extension JJNetWorkManager {
         
         // 从网络上加载数据 , "since_id": "\(since_id)"  "max_id": "\(max_id)"
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token": "2.00LGIqREoDn2KBa5877acdff0sXihi", "since_id": "\(since_id)", "max_id": "\(max_id > 0 ? max_id - 1 : 0)"]
+        let params = ["access_token": "2.00LGIqREoDn2KBf965c497eettkGOD", "since_id": "\(since_id)", "max_id": "\(max_id > 0 ? max_id - 1 : 0)"]
         request(Method: .GET, URLString: url, parameters: params) { (json, isSuccess) in
             let result = json as? [String: Any]
             let status = result?["statuses"] as? [[String: Any]]
@@ -27,11 +27,29 @@ extension JJNetWorkManager {
     /// 加载未读微博数量
     func loadUnreadCount(completion: @escaping (_ count: Int, _ isSuccess: Bool) -> ()) {
         let url = "https://rm.api.weibo.com/2/remind/unread_count.json"
-        let params = ["access_token": "2.00LGIqREoDn2KBa5877acdff0sXihi"]
+        let params = ["access_token": "2.00LGIqREoDn2KBf965c497eettkGOD"]
         request(URLString: url, parameters: params) { (json, isSuccess) in
             let result = json as? [String: Any]
             let count = result?["status"] as? Int
             completion(count ?? 0, isSuccess)
+        }
+    }
+}
+
+extension JJNetWorkManager {
+    /// 获取用户访问令牌和账号数据
+    func loadUserAccount(code: String, completion: @escaping (_ isSuccess: Bool) -> ()) {
+        
+        let tokenAccessUrl = "https://api.weibo.com/oauth2/access_token"
+        let params = ["client_id": Appkey, "client_secret": AppSecret, "grant_type": "authorization_code", "code": code, "redirect_uri": redirect_uri] as [String : Any]
+        JJNetWorkManager.shared.request(Method: .POST, URLString: tokenAccessUrl, parameters: params) { (json, isSuccess) in
+            
+            let json = json as? [String: Any?] ?? [:]
+            
+            /// 给用户数据模型赋值
+            self.userAccount.yy_modelSet(withJSON: json)
+            // 执行闭包
+            completion(isSuccess)
         }
     }
 }
