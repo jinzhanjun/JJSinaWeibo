@@ -58,7 +58,6 @@ class JJMainViewController: UITabBarController {
         delegate = self
         // 注册用户登录通知
         NotificationCenter.default.addObserver(self, selector: #selector(userLogin), name: NSNotification.Name(rawValue: JJUserSholdLoginNotification), object: nil)
-        
     }
     
     /// 视图销毁
@@ -103,13 +102,10 @@ extension JJMainViewController {
     private func setupComposeButton() {
         
         // 计算评论按钮的frame
-        let w = tabBar.bounds.width / CGFloat(viewControllers?.count ?? 1) - 1
-        
-        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w + 20, dy: 0)
-        
+        let w = tabBar.bounds.width / CGFloat(viewControllers?.count ?? 1)
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w, dy: 0)
         // 添加入tabbar
         tabBar.addSubview(composeButton)
-        
     }
  
     private func setupUI() {

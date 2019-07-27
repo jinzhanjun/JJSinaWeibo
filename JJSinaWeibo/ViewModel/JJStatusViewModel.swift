@@ -21,6 +21,7 @@ class JJStatusViewModel {
     
     func statusModel(isPullup: Bool = false, completion: @escaping (_ isSuccess: Bool)->()){
         
+        // 下拉刷新：since_id 为0；上拉刷新：max_id 为0。
         let since_id = isPullup ? 0 : (modelArray.first?.id ?? 0)
         let max_id = !isPullup ? 0 : (modelArray.last?.id ?? 0)
         
