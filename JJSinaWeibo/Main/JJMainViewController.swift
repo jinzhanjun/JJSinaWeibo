@@ -167,6 +167,11 @@ extension JJMainViewController: UITabBarControllerDelegate {
             viewController.tabBarItem.badgeValue = nil
             /// 设置应用程序角标为0
             UIApplication.shared.applicationIconBadgeNumber = 0
+            
+            // 异步加载数据
+            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1) {
+                home?.loadData()
+            }
         }
         return !viewController.isMember(of: UIViewController.self)
     }
