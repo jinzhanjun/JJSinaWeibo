@@ -41,13 +41,21 @@ extension JJNetWorkManager {
     func loadUserAccount(code: String, completion: @escaping (_ isSuccess: Bool) -> ()) {
         
         let tokenAccessUrl = "https://api.weibo.com/oauth2/access_token"
-        let params = ["client_id": Appkey, "client_secret": AppSecret, "grant_type": "authorization_code", "code": code, "redirect_uri": redirect_uri] as [String : Any]
-        JJNetWorkManager.shared.request(Method: .POST, URLString: tokenAccessUrl, parameters: params) { (json, isSuccess) in
+        let params = [
+            "client_id": Appkey,
+            "client_secret": AppSecret,
+            "grant_type": "authorization_code",
+            "code": code,
+            "redirect_uri": redirect_uri] as [String : Any]
+        // 发起网络请求
+        request(Method: .POST, URLString: tokenAccessUrl, parameters: params) { (json, isSuccess) in
             
             let json = json as? [String: Any?] ?? [:]
             
             /// 给用户数据模型赋值
             self.userAccount.yy_modelSet(withJSON: json)
+            // 保存用户账户信息
+            self.userAccount.saveAccount()
             // 执行闭包
             completion(isSuccess)
         }
