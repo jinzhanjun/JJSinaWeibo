@@ -34,6 +34,11 @@ class JJBaseViewController: UIViewController {
         // 注册通知(用户登录成功)
         NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: NSNotification.Name(rawValue: JJUserLoginSuccessNotification), object: nil)
     }
+    /// 视图证明周期中，最后销毁时！
+    deinit {
+        // 注销通知
+        NotificationCenter.default.removeObserver(self)
+    }
     
     // 重写 titile 方法，给自定义导航条设置标题
    override var title: String? {
@@ -44,7 +49,12 @@ class JJBaseViewController: UIViewController {
     
     /// 登录成功监听方法
     @objc private func loginSuccess() {
+        print("登录成功！")
+        navItem.rightBarButtonItem = nil
+        navItem.leftBarButtonItem = nil
         view = nil
+        // 注销通知 -> 重新执行 viewDidLoad 会再次注册！ 避免通知被重复注册！
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: -刷新监听方法
