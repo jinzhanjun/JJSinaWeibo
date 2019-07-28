@@ -15,7 +15,7 @@ extension JJNetWorkManager {
         
         // 从网络上加载数据 , "since_id": "\(since_id)"  "max_id": "\(max_id)"
         let url = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token": "2.00LGIqREoDn2KBf965c497eettkGOD", "since_id": "\(since_id)", "max_id": "\(max_id > 0 ? max_id - 1 : 0)"]
+        let params = ["access_token": "2.00LGIqRErQbMrBb54b4a70a70HeoWr", "since_id": "\(since_id)", "max_id": "\(max_id > 0 ? max_id - 1 : 0)"]
         request(Method: .GET, URLString: url, parameters: params) { (json, isSuccess) in
             let result = json as? [String: Any]
             let status = result?["statuses"] as? [[String: Any]]
@@ -27,7 +27,7 @@ extension JJNetWorkManager {
     /// 加载未读微博数量
     func loadUnreadCount(completion: @escaping (_ count: Int, _ isSuccess: Bool) -> ()) {
         let url = "https://rm.api.weibo.com/2/remind/unread_count.json"
-        let params = ["access_token": "2.00LGIqREoDn2KBf965c497eettkGOD"]
+        let params = ["access_token": "2.00LGIqRErQbMrBb54b4a70a70HeoWr"]
         request(URLString: url, parameters: params) { (json, isSuccess) in
             let result = json as? [String: Any]
             let count = result?["status"] as? Int

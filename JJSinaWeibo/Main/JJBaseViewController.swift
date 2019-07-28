@@ -89,6 +89,8 @@ class JJBaseViewController: UIViewController {
         // 设置顶部下移44个点，44为navBar的高度，不包括statusBar的高度
         self.tableView?.contentInset.top = 44
         
+        // 设置滚动条下移一部分
+        self.tableView?.scrollIndicatorInsets.top = 44
         // 设置数据源
         tableView?.dataSource = self
         // 设置代理

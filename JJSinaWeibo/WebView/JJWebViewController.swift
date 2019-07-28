@@ -16,6 +16,8 @@ class JJWebViewController: UIViewController {
     private lazy var userStatusModel = JJUserStatusModel()
     
     override func viewDidLoad() {
+        /// 设置SVProgress最大显示时间为1秒
+        SVProgressHUD.setMaximumDismissTimeInterval(1)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", normalColor: UIColor.orange, highlightedColor: UIColor.orange, target: self, action: #selector(back))
         view = webView
         // 设置代理
@@ -25,8 +27,9 @@ class JJWebViewController: UIViewController {
         title = "登录新浪微博"
         view.backgroundColor = UIColor.white
     }
-    
+    /// webview 消失
     @objc private func back() {
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
 }
@@ -65,11 +68,20 @@ extension JJWebViewController: UIWebViewDelegate {
                 SVProgressHUD.showInfo(withStatus: "网络加载失败")
             } else {
                 
+                SVProgressHUD.show(withStatus: "登录成功！")
                 // 成功后，就发送通知，告诉接受者，登录成功。
                 NotificationCenter.default.post(name: NSNotification.Name(JJUserLoginSuccessNotification), object: nil)
-                self.back()
+//                self.back()
             }
         }
         return false
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss()
     }
 }
