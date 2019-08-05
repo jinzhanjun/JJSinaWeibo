@@ -165,6 +165,3 @@ extension JJBaseViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
 }
-
-extension JJBaseViewController {
-}

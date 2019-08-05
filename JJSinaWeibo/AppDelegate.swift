@@ -8,6 +8,7 @@
 
 import UIKit
 import NotificationCenter
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         application.registerUserNotificationSettings(settings)
         // 实例化window
         window = UIWindow()
+        /// 网络加载指示器。
+        AFNetworkActivityIndicatorManager.shared().isEnabled = true
         
         // 创建视图控制器
         let vc = JJMainViewController()

@@ -71,7 +71,7 @@ extension JJWebViewController: UIWebViewDelegate {
                 SVProgressHUD.show(withStatus: "登录成功！")
                 // 成功后，就发送通知，告诉接受者，登录成功。
                 NotificationCenter.default.post(name: NSNotification.Name(JJUserLoginSuccessNotification), object: nil)
-//                self.back()
+                self.back()
             }
         }
         return false
